@@ -3,133 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Birthday Card</title>
     <style>
-        html {
-            scroll-behavior: smooth; /* Enables smooth scrolling */
-        }
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+
+        * {
             margin: 0;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            overflow-x: hidden;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Poppins', sans-serif;
-            color: #fff;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
         }
-        h1 {
-            margin-top: 50px;
-            font-size: 3rem;
-            color: #fff;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+
+        .card {
+            width: 600px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
-        p {
-            font-size: 1.2rem;
-        }
-        .message {
-            font-size: 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-            margin-top: 50px;
+
+        .click-text {
+            font-size: 16px;
+            color: #ff6f61;
             font-weight: 600;
-            animation: fadeIn 1s ease-in-out;
-            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.6);
+            margin-bottom: 10px;
         }
-        .btn {
-            font-size: 20px;
-            padding: 12px 25px;
-            border: none;
-            cursor: pointer;
-            background: #ff4e50;
-            color: white;
-            border-radius: 8px;
-            margin-top: 20px;
-            transition: transform 0.2s, box-shadow 0.3s;
-            font-weight: bold;
-        }
-        .btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 5px 15px rgba(255, 78, 80, 0.6);
-        }
-        .heart {
-            position: absolute;
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.8);
-            animation: float 4s linear infinite;
-        }
-        @keyframes float {
-            from {
-                transform: translateY(100vh) scale(1);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-10vh) scale(1.5);
-                opacity: 0;
-            }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .crush-image {
-            width: 220px;
-            height: 220px;
+
+        .photo {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 5px solid #fff;
-            object-fit: cover;
-            margin-top: 20px;
+            border: 5px solid #ff6f61;
+            overflow: hidden;
+            margin-bottom: 15px;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
-            box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
         }
-        .crush-image:hover {
+
+        .photo:hover {
             transform: scale(1.1);
         }
-        .container {
-            padding-bottom: 100px;
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 28px;
+            color: #ff6f61;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .decorations {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .footer {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>HELLO, MARY ROSE ❤️</h1>
-        <p>Click on your picture to see a birthday message! 😊</p>
-        
-        <!-- Replace 'your-image.jpg' with the actual URL of your crush's picture -->
-        <img src="FB_IMG_1740836138539.jpg" alt="Crush's Photo" class="crush-image" onclick="showMessage()">
-        
-        <p id="message" class="message">✨Happy Birthday! 🎉 Hope you have an amazing day filled with joy and great memories. Wishing you happiness, success, and everything wonderful today and always!
+    <div class="card">
+        <p class="click-text">Click on your picture to see a birthday message! 😊</p>
+        <div class="photo" onclick="showMessage()">
+            <img src="your-image.jpg" alt="Birthday Person">
+        </div>
+        <div class="message" id="birthdayMessage">
+            <h2>🎉 Happy  Birthday! 🎂</h2>
+            <p>Dear Mary Rose,</p>
+          
 
-Enjoy your special day! 😊🎂✨</p>
+I hope your day is as amazing as your smile! Wishing you a year filled with happiness, success, and all the amazing things you deserve. Keep shining and chasing your dreams—I know you'll achieve great things. Enjoy your special day! ✨😊"</p
+            
+            <div class="decorations">🎈🎊🥳</div>
+            <p class="footer">Made with ❤️ by Sherwin</p>
+        </div>
     </div>
 
     <script>
         function showMessage() {
-            const message = document.getElementById("message");
+            let message = document.getElementById("birthdayMessage");
             message.style.display = "block";
-            message.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "❤️";
-            document.body.appendChild(heart);
-            
-            let x = Math.random() * window.innerWidth;
-            let duration = Math.random() * 3 + 2; 
-
-            heart.style.left = `${x}px`;
-            heart.style.animationDuration = `${duration}s`;
-
             setTimeout(() => {
-                heart.remove();
-            }, duration * 1000);
+                message.style.opacity = "1";
+            }, 100);
         }
-
-        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
