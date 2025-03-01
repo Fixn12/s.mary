@@ -21,6 +21,7 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            overflow: hidden;
         }
 
         .card {
@@ -33,6 +34,7 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            position: relative;
         }
 
         .click-text {
@@ -94,21 +96,40 @@
             color: #666;
             font-style: italic;
         }
+
+        /* Confetti Styling */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="card">
         <p class="click-text">Click on your picture to see a birthday message! 😊</p>
-        <div class="photo" onclick="showMessage()">
+        <div class="photo" onclick="showMessage(); startConfetti();">
             <img src="FB_IMG_1740836138539.jpg" alt="Birthday Person">
         </div>
         <div class="message" id="birthdayMessage">
-            <h2>🎉 Happy  Birthday! 🎂</h2>
+            <h2>🎉 Happy Birthday! 🎂</h2>
             <p>Dear Mary Rose,</p>
-          
-
-I hope your day is as amazing as your smile! Wishing you a year filled with happiness, success, and all the amazing things you deserve. Keep shining and chasing your dreams—I know you'll achieve great things. Enjoy your special day! ✨😊"</p
-            
+            <p>I hope your day is as amazing as your smile! Wishing you a year filled with happiness, success, and all the amazing things you deserve. Keep shining and chasing your dreams—I know you'll achieve great things. Enjoy your special day! ✨😊</p>
             <div class="decorations">🎈🎊🥳</div>
             <p class="footer">Made with ❤️ by Sherwin</p>
         </div>
@@ -121,6 +142,25 @@ I hope your day is as amazing as your smile! Wishing you a year filled with happ
             setTimeout(() => {
                 message.style.opacity = "1";
             }, 100);
+        }
+
+        function startConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                document.body.appendChild(confetti);
+
+                let colors = ["#FF5733", "#FFC300", "#DAF7A6", "#FF33E9", "#33FFF4"];
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+                confetti.style.left = Math.random() * window.innerWidth + "px";
+                confetti.style.top = -10 + "px";
+                confetti.style.animationDuration = Math.random() * 2 + 3 + "s";
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
         }
     </script>
 </body>
